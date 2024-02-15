@@ -257,7 +257,7 @@ export default function Index() {
                 </div>
               </div>
               <div className="flex-shrink-0" style={{ minWidth: "33%" }}>
-                <div className="max-w-md bg-gray-900 py-11 px-9 rounded-10">
+                <div className="max-w-md bg-gray-900 py-11 px-9 rounded-10 md:mb-0 mb-10">
                   <div className="mb-11 flex justify-center items-center font-heading text-xl bg-gradient-green w-12 h-12 text-gray-900 rounded-full">
                     2
                   </div>
@@ -271,7 +271,7 @@ export default function Index() {
                 </div>
               </div>
               <div className="flex-shrink-0" style={{ minWidth: "33%" }}>
-                <div className="max-w-md bg-gray-900 py-11 px-9 rounded-10">
+                <div className="max-w-md bg-gray-900 py-11 px-9 rounded-10 md:mb-0 mb-10">
                   <div className="mb-11 flex justify-center items-center font-heading text-xl bg-gradient-green w-12 h-12 text-gray-900 rounded-full">
                     3
                   </div>
@@ -283,7 +283,7 @@ export default function Index() {
                 </div>
               </div>
               <div className="flex-shrink-0" style={{ minWidth: "33%" }}>
-                <div className="max-w-md bg-gray-900 py-11 px-9 rounded-10">
+                <div className="max-w-md bg-gray-900 py-11 px-9 rounded-10 md:mb-0 mb-10">
                   <div className="mb-11 flex justify-center items-center font-heading text-xl bg-gradient-green w-12 h-12 text-gray-900 rounded-full">
                     4
                   </div>
@@ -295,7 +295,7 @@ export default function Index() {
                 </div>
               </div>
               <div className="flex-shrink-0" style={{ minWidth: "33%" }}>
-                <div className="max-w-md bg-gray-900 py-11 px-9 rounded-10">
+                <div className="max-w-md bg-gray-900 py-11 px-9 rounded-10 md:mb-0 mb-10">
                   <div className="mb-11 flex justify-center items-center font-heading text-xl bg-gradient-green w-12 h-12 text-gray-900 rounded-full">
                     5
                   </div>
