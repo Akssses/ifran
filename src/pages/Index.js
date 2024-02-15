@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import hero from "../assets/gradia-assets/images/hero/heroo.png";
 import girl from "../assets/gradia-assets/images/features/girl.png";
+import Footer from "../components/layout/Footer";
 
 const meta = {
-  title: "",
+  title: "Ifran.kg",
   meta: [],
   link: [],
   style: [],
@@ -12,6 +13,16 @@ const meta = {
 };
 
 export default function Index() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const handlePrevClick = () => {
+    setActiveIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : 3)); // Переход к последнему элементу, если текущий первый
+  };
+
+  const handleNextClick = () => {
+    setActiveIndex((prevIndex) => (prevIndex < 3 ? prevIndex + 1 : 0)); // Возвращение к первому элементу, если текущий последний
+  };
+
   return (
     <React.Fragment>
       <HelmetProvider>
@@ -119,7 +130,7 @@ export default function Index() {
               <div className="w-full lg:w-1/2 p-6">
                 <div className="lg:max-w-xl">
                   <p className="mb-8 font-heading max-w-max px-5 py-2.5 uppercase font-semibold text-xs tracking-wider text-indigo-900 bg-gradient-blue2 rounded-full">
-                    Rated #2 on G2
+                    Тут какой то текст
                   </p>
                   <h1 className="mb-6 font-heading text-7xl md:text-10xl xl:text-12xl text-gray-900 font-bold">
                     Ирфан - Твой путеводитель в исаламе
@@ -217,100 +228,137 @@ export default function Index() {
           <div className="relative z-10 container mx-auto px-4">
             <div className="mb-16 max-w-xl">
               <h2 className="mb-6 font-heading font-semibold text-white text-6xl sm:text-7xl">
-                Three steps to get started
+                Про курс:
               </h2>
               <p className="text-gray-400 text-lg">
-                Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                amet sint. Velit officia consequat duis enim.
+                На данном курсе вы получите обширные знания и навыки, которые
+                помогут вам глубже понять Ислам и усовершенствовать свою
+                религиозную практику. Курс включает в себя следующие ключевые
+                аспекты:
               </p>
             </div>
-            <div className="flex flex-nowrap -m-3 mb-11">
-              <div className="flex-shrink-0 p-3">
-                <div className="max-w-md bg-gray-900 py-11 px-9 rounded-10">
+            <div
+              className="flex  flex-nowrap mb-11"
+              style={{
+                transition: "transform 0.5s ease",
+                transform: `translateX(-${activeIndex * 50}%)`,
+              }}
+            >
+              <div className="flex-shrink-0" style={{ minWidth: "33%" }}>
+                <div className="max-w-md bg-gray-900 py-11 px-9 rounded-10 md:mb-0 mb-10">
                   <div className="mb-11 flex justify-center items-center font-heading text-xl bg-gradient-green w-12 h-12 text-gray-900 rounded-full">
                     1
                   </div>
                   <p className="text-white text-xl">
-                    Subscribe to a plan that suits you better and place orders
-                    as many as you want.
+                    Вы изучите вероубеждение и получите ответ на вопрос «Кто
+                    такой мусульманин?». Этот раздел курса направлен на
+                    понимание основных принципов и ценностей Ислама.
                   </p>
                 </div>
               </div>
-              <div className="flex-shrink-0 p-3">
+              <div className="flex-shrink-0" style={{ minWidth: "33%" }}>
                 <div className="max-w-md bg-gray-900 py-11 px-9 rounded-10">
                   <div className="mb-11 flex justify-center items-center font-heading text-xl bg-gradient-green w-12 h-12 text-gray-900 rounded-full">
                     2
                   </div>
                   <p className="text-white text-xl">
-                    Subscribe to a plan that suits you better and place orders
-                    as many as you want.
+                    Курс предлагает подробное обучение чтению Курана в
+                    оригинале, начиная с азов. Вы научитесь читать священный
+                    текст согласно всем правилам махража (правильное
+                    произношение звуков) и таджвида (искусство красивого
+                    чтения).
                   </p>
                 </div>
               </div>
-              <div className="flex-shrink-0 p-3">
+              <div className="flex-shrink-0" style={{ minWidth: "33%" }}>
                 <div className="max-w-md bg-gray-900 py-11 px-9 rounded-10">
                   <div className="mb-11 flex justify-center items-center font-heading text-xl bg-gradient-green w-12 h-12 text-gray-900 rounded-full">
                     3
                   </div>
                   <p className="text-white text-xl">
-                    Subscribe to a plan that suits you better and place orders
-                    as many as you want.
+                    Включены два модуля, посвященные исправлению и улучшению
+                    качества ваших пятикратных молитв. Эти модули помогут вам
+                    совершенствовать вашу молитвенную практику.
                   </p>
                 </div>
               </div>
-              <div className="flex-shrink-0 p-3">
+              <div className="flex-shrink-0" style={{ minWidth: "33%" }}>
                 <div className="max-w-md bg-gray-900 py-11 px-9 rounded-10">
                   <div className="mb-11 flex justify-center items-center font-heading text-xl bg-gradient-green w-12 h-12 text-gray-900 rounded-full">
                     4
                   </div>
                   <p className="text-white text-xl">
-                    Subscribe to a plan that suits you better and place orders
-                    as many as you want.
+                    На протяжении трех месяцев у вас будет личный куратор,
+                    который будет сопровождать вас, отвечать на вопросы и
+                    помогать в освоении курса.
+                  </p>
+                </div>
+              </div>
+              <div className="flex-shrink-0" style={{ minWidth: "33%" }}>
+                <div className="max-w-md bg-gray-900 py-11 px-9 rounded-10">
+                  <div className="mb-11 flex justify-center items-center font-heading text-xl bg-gradient-green w-12 h-12 text-gray-900 rounded-full">
+                    5
+                  </div>
+                  <p className="text-white text-xl">
+                    Каждую неделю проводятся лекции от опытных устазов по
+                    хадисам (сказаниям Пророка), фикху (исламскому праву) и
+                    акъыде (догматике). Эти занятия расширят ваше понимание
+                    духовных и юридических аспектов Ислама.
                   </p>
                 </div>
               </div>
             </div>
-            <div className="flex flex-wrap wrap justify-center md:justify-end -m-2">
-              <div className="w-auto p-2">
-                <a href="#">
-                  <svg
-                    width={24}
-                    height={24}
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M10 19L3 12M3 12L10 5M3 12L21 12"
-                      stroke="#3F3F46"
-                      strokeWidth={2}
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </a>
+            <div className="flex flex-wrap wrap justify-center md:justify-end">
+              <div className="w-auto" onClick={handlePrevClick}>
+                <svg
+                  width={24}
+                  height={24}
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 19L3 12M3 12L10 5M3 12L21 12"
+                    stroke="#3F3F46"
+                    strokeWidth={2}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
               </div>
-              <div className="w-auto p-2">
-                <a href="#">
-                  <svg
-                    width={24}
-                    height={24}
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M14 5L21 12M21 12L14 19M21 12L3 12"
-                      stroke="white"
-                      strokeWidth={2}
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </a>
+              <div className="w-auto" onClick={handleNextClick}>
+                <svg
+                  width={24}
+                  height={24}
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M14 5L21 12M21 12L14 19M21 12L3 12"
+                    stroke="white"
+                    strokeWidth={2}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
               </div>
             </div>
           </div>
+          <style jsx>{`
+            @media (max-width: 768px) {
+              .navigation-buttons {
+                display: none;
+              }
+              .flex.flex-nowrap.mb-11 {
+                flex-wrap: wrap;
+                transform: none !important;
+              }
+              .flex-shrink-0 {
+                min-width: 100% !important;
+              }
+            }
+          `}</style>
         </section>
         <section className="relative py-44 overflow-hidden">
           <div className="container mx-auto px-4">
@@ -387,7 +435,7 @@ export default function Index() {
         <section className="relative pt-24 pb-32 overflow-hidden">
           <div className="container mx-auto px-4">
             <h2 className="mb-5 max-w-2xl mx-auto font-heading font-bold text-center text-6xl sm:text-7xl text-gray-900">
-              12k+ Happy Clients
+              800+ довольных учеников
             </h2>
             <p className="mb-16 text-base max-w-md mx-auto text-center text-gray-600">
               Amet minim mollit non deserunt ullamco est sit aliqua dolor do
@@ -450,107 +498,6 @@ export default function Index() {
                       Darrell Steward
                     </h3>
                     <p className="text-sm text-gray-600">Product Designer</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section className="py-16 bg-black overflow-hidden">
-          <div className="container mx-auto px-4">
-            <div className="flex flex-wrap lg:items-center -m-6">
-              <div className="w-full md:w-auto p-6">
-                <img src="gradia-assets/logos/gradia-name-white.svg" alt="" />
-              </div>
-              <div className="w-full md:w-1/2 p-6">
-                <ul className="flex flex-wrap -m-5">
-                  <li className="p-5">
-                    <a
-                      className="font-heading text-base text-white hover:text-gray-200"
-                      href="#"
-                    >
-                      Features
-                    </a>
-                  </li>
-                  <li className="p-5">
-                    <a
-                      className="font-heading text-base text-white hover:text-gray-200"
-                      href="#"
-                    >
-                      Pricing
-                    </a>
-                  </li>
-                  <li className="p-5">
-                    <a
-                      className="font-heading text-base text-white hover:text-gray-200"
-                      href="#"
-                    >
-                      Affiliate Program
-                    </a>
-                  </li>
-                  <li className="p-5">
-                    <a
-                      className="font-heading text-base text-white hover:text-gray-200"
-                      href="#"
-                    >
-                      Press Kit
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div className="w-auto md:ml-auto p-6">
-                <div className="flex flex-wrap items-center -m-1.5">
-                  <div className="w-auto p-1.5">
-                    <svg
-                      width={20}
-                      height={20}
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M2.5 6.66669L9.0755 11.0504C9.63533 11.4236 10.3647 11.4236 10.9245 11.0504L17.5 6.66669M4.16667 15.8334H15.8333C16.7538 15.8334 17.5 15.0872 17.5 14.1667V5.83335C17.5 4.91288 16.7538 4.16669 15.8333 4.16669H4.16667C3.24619 4.16669 2.5 4.91288 2.5 5.83335V14.1667C2.5 15.0872 3.24619 15.8334 4.16667 15.8334Z"
-                        stroke="white"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </div>
-                  <div className="w-auto p-1.5">
-                    <h3 className="font-heading font-medium text-base text-white">
-                      info@gradia.com
-                    </h3>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="py-9">
-              <div className="border-b border-gray-800" />
-            </div>
-            <div className="flex flex-wrap items-center justify-between -m-6">
-              <div className="w-auto p-6">
-                <p className="text-sm text-gray-300">
-                  © Copyright 2022. All Rights Reserved by Gradia.
-                </p>
-              </div>
-              <div className="w-auto p-6">
-                <div className="flex flex-wrap -m-6">
-                  <div className="w-auto p-6">
-                    <a
-                      className="text-gray-300 hover:text-gray-400 text-sm"
-                      href="#"
-                    >
-                      Privacy Policy
-                    </a>
-                  </div>
-                  <div className="w-auto p-6">
-                    <a
-                      className="text-gray-300 hover:text-gray-400 text-sm"
-                      href="#"
-                    >
-                      Terms &amp; Conditions
-                    </a>
                   </div>
                 </div>
               </div>
